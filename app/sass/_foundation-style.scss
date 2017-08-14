@@ -1,0 +1,56 @@
+.foundation {
+	padding: 20px 10px;
+	&--title {
+		@extend %style-h4;
+		margin-bottom: 16px;
+	}
+	&--img {
+		border-radius: 6px;
+		margin: 8px 8px;
+		float: left;
+	}
+	&--text {
+		color: $text-color;
+		line-height: 20px;
+		font-size: 16px;
+		margin: 0 10px 12px 10px;
+	}
+	&--link {
+		@extend %button-link;
+		display: block;
+		margin: 0 auto;
+	}
+}
+.foundation--list {
+	padding: 20px 10px;
+	&-text {
+		border-bottom: 1px dotted #3c3d3d;
+		font-size: 14px;
+		color: $text-color;
+		padding: 8px 0;
+	}
+}
+.decor-txt {
+	color: #fff;
+}
+
+@media screen and (min-width: 980px) {
+	.foundation--wrap {
+		@include cliarfix;
+		padding: 20px 0;
+		width: 980px;
+		margin: 0 auto;
+	}
+	.foundation {
+		width: 65%;
+		float: left;
+		padding: 0;
+		&--link {
+			display: inline-block;
+		}
+	}
+	.foundation-sidebar {
+		width: 35%;
+		float: right;
+	}
+}

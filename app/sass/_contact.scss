@@ -1,0 +1,89 @@
+.contact {
+	width: 100%;
+	&--title {
+		@extend %style-h2;
+		margin-left: 16px;
+	}
+	&--form {
+		padding: 10px 16px;
+		&-input {
+			display: block;
+			width: 80%;
+			border-radius: 4px;
+			color: #000;
+			font-size: 14px;
+			margin-bottom: 6px;
+			border: none;
+			padding: 2px 4px;
+		}
+		&-text {
+			width: 90%;
+			border-radius: 6px;
+			margin-bottom: 20px;
+			padding: 4px 6px;
+			border: none;
+		}
+		&-button, &-submit {
+			@extend %button-link;
+			border: none;
+			margin-right: 8px;
+		}
+	}
+}
+.sidebar--contact {
+	width: 100%;
+}
+.sidebar--contact-text {
+	color: $text-color;
+	font-size: 15px;
+	margin-bottom: 25px;
+	padding: 0 0 0 10px;
+	line-height: 20px;
+	word-spacing: 4px;
+}
+.contact--map {
+	margin-bottom: 20px;
+	&-frame {
+		width: 100%;
+		height: auto;
+		border-radius: 6px;
+		border: none;
+	}
+}
+.contact-text-date {
+	color: #fff;
+	font-size: 16px;
+	margin-bottom: 25px;
+	padding: 0 0 0 10px;
+	word-spacing: 4px;
+	display: inline-block;
+}
+.sidebar--contact-link {
+	color: $activ-color;
+	font-size: 14px;
+	&:hover {
+		text-decoration: none;
+	}
+}
+.error {
+	color: #F74400;
+	margin: 6px 0 6px 0;
+	display: block;
+	font-size: 12px;
+}
+
+@media screen and (min-width: 980px) {
+	.contact-block {
+		width: 980px;
+		margin: 0 auto;
+		@include cliarfix;
+	}
+	.contact {
+		width: 65%;
+		float: left;
+	}
+	.sidebar--contact {
+		width: 33%;
+		float: right;
+	}
+}

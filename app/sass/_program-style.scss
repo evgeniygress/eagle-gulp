@@ -1,0 +1,96 @@
+.program-block {
+	padding: 20px 10px 0 10px;
+}
+.program {
+	margin-bottom: 20px;
+	padding: 0 0 20px 0;
+	border-bottom: 1px dotted #3e4040;
+	&:last-child {border-bottom: none;} 
+	&--title {
+		@extend %style-h2;
+		margin-bottom: 20px;
+	}
+	&--text {
+		font-size: 14px;
+		color: $text-color;
+		line-height: 18px;
+		margin-bottom: 20px;
+		&-decor {
+			color: #fff;
+		}
+	}
+	&--img {
+		margin: 10px 10px 10px 0;
+		float: left;
+		border-radius: 6px;
+	}
+	&--link {
+		@extend %button-link;
+	}
+}
+.program--list {
+	list-style-image: url(../images/marker.png);
+	margin-bottom: 20px;
+	&-text {
+		color: #fff;
+		font-size: 14px;
+		margin: 0 20px 0 0;
+		padding: 6px 0 6px 10px;
+		border-bottom: 1px dotted #c6c6c6;
+	}
+}
+
+.program-sidbar {
+	padding: 20px 10px;
+}
+.program--sidebar-block {
+	margin-bottom: 30px;
+	@include cliarfix;
+}
+.sidebar--img {
+	border-radius: 6px;
+	float: left;
+	margin: 0 10px 10px 0;
+}
+.sidebar--text {
+	color: $text-color;
+	font-size: 14px;
+	line-height: 18px;
+	margin-bottom: 20px;
+}
+.sidebar--text-decor {
+	color: #fff;
+	margin-bottom: 20px;
+}
+.sidebar--link {
+	@extend %button-link;
+}
+
+@media screen and (min-width: 980px) {
+	.program-wrap {
+		width: 980px;
+		margin: 0 auto;
+		@include cliarfix;
+	}
+	.program-block {
+		width: 65%;
+		float: left;
+		padding: 0;
+	}
+	.program--list-text {
+		width: 45%;
+		float: left;
+	}
+	.program-sidbar {
+		width: 33%;
+		float: right;
+		padding: 0;
+	}
+
+	.sidebar--img {
+		float: none;
+		width: 100%;
+		height: auto;
+		margin-bottom: 24px;
+	}
+}
