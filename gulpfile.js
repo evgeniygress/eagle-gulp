@@ -1,23 +1,23 @@
-var gulp 		 = require('gulp'),					//подключаем gulp
-	sass 		 = require('gulp-sass'),			//подключаем компилятор sass
-	browserSync  = require('browser-sync'),			//подключаем browser-sync
-	concat       = require('gulp-concat'),			//для объединения js файлов
-	uglify       = require('gulp-uglifyjs'),		//для сжатия js файлов
-	cssnano      = require('gulp-cssnano'),			//для сжатия css файлов
-	rename       = require('gulp-rename'),			//для переименования файлов
-	del          = require('del'),					//для удаления папок, файлов
-	imageMin     = require('gulp-imagemin'),		//для обработки картинок
-	pngquant     = require('imagemin-pngquant'),	//для обработки картинок
-	cache        = require('gulp-cache'),			//для кеширования
+var     gulp 	     = require('gulp'),					
+	sass 	     = require('gulp-sass'),			
+	browserSync  = require('browser-sync'),			
+	concat       = require('gulp-concat'),		
+	uglify       = require('gulp-uglifyjs'),		
+	cssnano      = require('gulp-cssnano'),			
+	rename       = require('gulp-rename'),			
+	del          = require('del'),					
+	imageMin     = require('gulp-imagemin'),		
+	pngquant     = require('imagemin-pngquant'),	
+	cache        = require('gulp-cache'),			
 	spritesmith  = require('gulp.spritesmith'),
 	merge        = require('merge-stream'),
 	csso         = require('gulp-csso'),
 	buffer       = require('vinyl-buffer'),
-	autoprefixer = require('gulp-autoprefixer');	// для автопрефиксов
+	autoprefixer = require('gulp-autoprefixer');	
 
 
 
-gulp.task('sass', function() {						//таск sass
+gulp.task('sass', function() {						
 	return gulp.src('app/sass/**/*.scss')
 	.pipe(sass())
 	.pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], {cascade: true }))
@@ -54,7 +54,7 @@ gulp.task('delSprite', function() {
 
 
 
-gulp.task('scripts-libs', function() {					//таск scripts-libs
+gulp.task('scripts-libs', function() {					
 	return gulp.src([
 			'app/libs/jquery/dist/jquery.min.js',
 			'app/libs/jquery-validation/dist/jquery.validate.min.js'
@@ -63,7 +63,7 @@ gulp.task('scripts-libs', function() {					//таск scripts-libs
 	.pipe(gulp.dest('app/js'));
 });
 
-gulp.task('css',['sass'], function() {			//таск css
+gulp.task('css',['sass'], function() {			
 	return gulp.src('app/css/*.css')
 	.pipe(cssnano({
 		 keepSpecialComments: 1
@@ -72,7 +72,7 @@ gulp.task('css',['sass'], function() {			//таск css
 });
 
 
-gulp.task('browser-sync', function() {				//таск browser-sync
+gulp.task('browser-sync', function() {				
 	browserSync({
 		server: {
 			baseDir: 'app'
@@ -81,15 +81,15 @@ gulp.task('browser-sync', function() {				//таск browser-sync
 	});
 });
 
-gulp.task('clean', function() {					//таск clean
+gulp.task('clean', function() {					
 	return del.sync('dist');
 });
 
-gulp.task('clear', function() {					//таск clear cache 
+gulp.task('clear', function() {					
 	return cache.clearAll();
 });
 
-gulp.task('img', function() {					//таск img
+gulp.task('img', function() {					
 	return gulp.src('app/images/**/*')
 	.pipe(cache(imageMin({
 		interlaced: true,
@@ -102,14 +102,14 @@ gulp.task('img', function() {					//таск img
 
 
 
-gulp.task('watch',['clear', 'browser-sync', 'css', 'scripts-libs'], function() {      //таск watch
+gulp.task('watch',['clear', 'browser-sync', 'css', 'scripts-libs'], function() {   
 	gulp.watch('app/sass/**/*.scss', ['sass']);
 	gulp.watch('app/*.html', browserSync.reload);
 	gulp.watch('app/js/**/*.js', browserSync.reload);
 });
 
 
-gulp.task('build',['clean', 'img', 'sass', 'scripts-libs'], function() {			//таск build
+gulp.task('build',['clean', 'img', 'sass', 'scripts-libs'], function() {			
 	var buildCss = gulp.src([
 			'app/css/style.css',
 		])
