@@ -1,7 +1,7 @@
 {
-  "name": "ave",
+  "name": "eagle",
   "version": "1.0.0",
-  "description": "gulp ave",
+  "description": "gulp eagle",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
